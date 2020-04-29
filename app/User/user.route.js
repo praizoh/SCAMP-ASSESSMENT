@@ -7,5 +7,6 @@ module.exports = app =>{
     })
     // create a new user
     app.post("/signUp", user.create);
+    app.post("/auth", user.signIn);
 
 }
