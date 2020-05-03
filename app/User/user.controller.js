@@ -13,7 +13,7 @@ exports.create = async(req,res)=>{
         });
         return;
     }
-    const isAdmin = false
+    const isAdmin = true
     const userPassword = await passwordUtils.hashPassword(password.toLowerCase())
     // create a user
     const user = {
@@ -28,6 +28,7 @@ exports.create = async(req,res)=>{
         res.send(data);
     })
     .catch(err => {
+        console.log(err)
         res.status(500).send({
         message:
             err.message || "Some error occurred while creating the User."
@@ -64,6 +65,7 @@ exports.signIn = async(req,res)=>{
             res.status(405).send({ message: "User password does not match" });
         }
     }catch(err){
+        console.log(err)
         res.status(500).send({
             message:"An errror occurred"
         })

@@ -13,13 +13,15 @@ exports.verifyToken = (req, res, next) => {
   const token = req.headers.authorization || req.params.token;
   if (!token) {
     res.status(403).send({ message: 'No token provided' });
+  }else{
+    jwt.verify(token, key, (error, decoded) => {
+      if (error) {
+        res.status(401).send({ message: 'Invalid token provided' });
+      }
+      req.decoded = decoded;
+      next();
+    });
   }
-  jwt.verify(token, key, (error, decoded) => {
-    if (error) {
-      res.status(401).send({ message: 'Invalid token provided' });
-    }
-    req.decoded = decoded;
-    next();
-  });
+  
 }
 

@@ -23,10 +23,10 @@ exports.isUser = (req, res, next) => {
 
 exports.isAdmin = (req, res, next) => {
     try{
-        if(req.decoded.admin===true){
+        if(req.decoded.admin==='1'){
             next()
         }else{
-            res.status(409).send({message:'Access Denied'})
+            res.status(409).send({message:'Access Denied, Not An Admin'})
         }
     }catch(err){
         res.status(500).send({message:'An error occured'})
@@ -36,8 +36,8 @@ exports.isAdmin = (req, res, next) => {
 
 exports.notAdmin = (req, res, next) => {
     try{
-        if(req.decoded.admin===true){
-            res.status(409).send({message:'Access Denied'})
+        if(req.decoded.admin==="1"){
+            res.status(409).send({message:'Access Denied, Only Sales Persons are allowed'})
         }else{
             next()
         }
