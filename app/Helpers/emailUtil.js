@@ -1,6 +1,7 @@
 const nodemailer = require("nodemailer"); 
 const dotenv = require('dotenv')
 dotenv.config()
+
 exports.emailUtility=(emailFrom, emailTo, emailSubject, emailText) =>{
     const transport = nodemailer.createTransport({
         service: 'gmail',
