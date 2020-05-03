@@ -6,7 +6,7 @@ exports.emailUtility=(emailFrom, emailTo, emailSubject, emailText) =>{
         service: 'gmail',
         auth: {
             // should be replaced with real sender's account
-            user: process.env.user,
+            user: process.env.userEmail,
             pass: process.env.pass        
         }
     }); 
