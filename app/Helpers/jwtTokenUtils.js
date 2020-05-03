@@ -12,11 +12,11 @@ exports.verifyToken = (req, res, next) => {
   const key = process.env.SECRET_KEY;
   const token = req.headers.authorization || req.params.token;
   if (!token) {
-    res.status(403).json({ status: 403, error: 'No token provided' });
+    res.status(403).send({ message: 'No token provided' });
   }
   jwt.verify(token, key, (error, decoded) => {
     if (error) {
-      res.status(401).json({ status: 401, error: 'Invalid token provided' });
+      res.status(401).send({ message: 'Invalid token provided' });
     }
     req.decoded = decoded;
     next();

@@ -1,11 +1,11 @@
 const dbConfig = require('./db.config')
 
 const Sequelize = require("sequelize");
-const sequelize = new Sequelize(dbConfig.DB, dbConfig.USER, dbConfig.PASSWORD, {
-  host: dbConfig.HOST,
-  dialect: dbConfig.dialect,
-  operatorsAliases: false,
-
+const dotenv = require('dotenv')
+dotenv.config()
+const sequelize = new Sequelize(process.env.DB, process.env.USER, process.env.PASSWORD, {
+  host: process.env.Host,
+  dialect: dbConfig.dialect,     
   pool: {
     max: dbConfig.pool.max,
     min: dbConfig.pool.min,
@@ -20,6 +20,6 @@ db.Sequelize = Sequelize;
 db.sequelize = sequelize;
 
 db.users = require("../User/user.model")(sequelize, Sequelize);
-// db.inventory = require("../Inventory/inventory.model")(sequelize, Sequelize);
+db.inventory = require("../Inventory/inventory.model")(sequelize, Sequelize);
 
 module.exports = db;

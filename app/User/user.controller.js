@@ -47,19 +47,17 @@ exports.signIn = async(req,res)=>{
     }
     try{
         const userDetails = await User.findAll({ where: { username: username } })
-        console.log(userDetails)
-        const isMatch = await passwordUtils.comparePassword(userPassword, password);
+        const userPassword = (userDetails[0].dataValues.password)
+        const id = (userDetails[0].dataValues.id)
+        const isAdmin = (userDetails[0].dataValues.isAdmin)
+        const isMatch = await passwordUtils.comparePassword(password, userPassword);
         if (isMatch) {
             const tokens = jwtTokenUtils.signToken(id, username, isAdmin);
             const data = {
               token: tokens,
               id,
-              firstname: first_name,
-              lastname: last_name,
-              email,
-              address,
-              status,
-              isAdmin: is_admin,
+              username,
+              isAdmin,
             };
             res.status(200).send({ message: 'Logged in successfully', data });
         } else {
@@ -73,10 +71,6 @@ exports.signIn = async(req,res)=>{
     
 }
 
-// retrieve all users from the db
-exports.findAll = (req, res) => {
-  
-};
 
 // find a single user
 exports.findOne = (req, res) => {
