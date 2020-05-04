@@ -21,6 +21,21 @@ exports.isUser = (req, res, next) => {
       
 };
 
+exports.notAUser = async(req, res, next) => {
+    const username = req.body.username
+    try{
+        const getUser = await User.findAll({ where: { username: username } })
+        if(getUser.length>0){
+            res.status(409).send({message:'User already exists'})
+        }else{
+            next()
+        }
+    }catch(err){
+        res.status(500).send({message:'An error occured'})
+    }
+      
+};
+
 exports.isAdmin = (req, res, next) => {
     try{
         if(req.decoded.admin==='1'){

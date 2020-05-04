@@ -13,7 +13,7 @@ exports.create = async(req,res)=>{
         });
         return;
     }
-    const isAdmin = true
+    const isAdmin = false
     const userPassword = await passwordUtils.hashPassword(password.toLowerCase())
     // create a user
     const user = {
