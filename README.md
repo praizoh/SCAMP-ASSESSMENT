@@ -22,7 +22,7 @@ The API endpoints are hosted on Heroku - [store-management-scatest](https://stor
 
 |METHOD  |DESCRIPTION                        |ENDPOINT                                  |
 |------- |-----------------------------------|------------------------------------------|
-|POST    |User Can Sign Up                            |/signup signup                        |
+|POST    |User Can Sign Up                            |/signup
 |POST    |User Can Sign In                            |/auth
 |POST    |Admin Can Create Inventory                            |/inventory
 |GET    |Admin/Salesperson Can View Inventory                            |/inventory
@@ -42,7 +42,7 @@ You will need to have [POSTMAN](https://documenter.getpostman.com/view/8738160/S
 3. To access the Sign In endpoint, at the end of Quick Credit's URL attach the sign in endpoint to it as seen in step 4
 4. https://store-management-scatest.herokuapp.com/auth 
 5. Then paste the full URL in the URL bar.
-6. Click 'Body' tab below the URL, then select x-www-form-urlencoded radio button.
+6. Click 'Body' tab below the URL, then select raw radio button, JSON format.
 7. Fill in the required fields correctly.
 8. Click the blue Send button to the right of the URL bar.
 9. And wait for a response below.
