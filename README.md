@@ -35,6 +35,9 @@ ____
 #### Accessing the endpoints remotely via POSTMAN
 You will need to have [POSTMAN](https://documenter.getpostman.com/view/8738160/SzmZe1rM) app installed on your computer.
 
+### Documentation Link
+https://documenter.getpostman.com/view/8738160/SzmZe1rM
+
 ##### Example 
 ###### Sign In
 1. Launch POSTMAN
@@ -52,7 +55,7 @@ You will need to have [POSTMAN](https://documenter.getpostman.com/view/8738160/S
 1. On the terminal of your computer, navigate into the cloned repo's folder
 2. Click [npm](https://www.npmjs.com/get-npm) and [Node.js](https://nodejs.org/en/) to get npm and node respectively.
 3. Clone store-management-scatest repo `https://github.com/praizoh/SCAMP-ASSESSMENT.git` on your local machine.
-4. Run `$ npm install` to install All of Quick Credit's dependencies.
+4. Run `$ npm install` to install All of the dependencies.
 5. Run `$ npm start` to power up the server.
 6. The procedure for using POSTMAN here is the same as when accessing the endpoint remotely except that you make use of http://localhost:3000 as the full URL's prefix in place of the app's URL on heroku
 e.g To access Sign In endpoint you will have a full URL like http://localhost:3000/auth
